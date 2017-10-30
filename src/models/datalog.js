@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 // create a schema
-var logdataSchema = new Schema({
+var datalogSchema = new Schema({
   device_identifier: String,
   data: { 
     relay_state: Boolean,
@@ -14,8 +14,8 @@ var logdataSchema = new Schema({
   updated_at: Date
 });
 
-logdataSchema.pre('save', (next) => {
-  const currentDate = new Date();
+datalogSchema.pre('save', function(next) {
+  const currentDate = new Date().toISOString();
 
   this.updated_at = currentDate;
 
@@ -25,5 +25,5 @@ logdataSchema.pre('save', (next) => {
   next();
 });
 
-const Logdata = mongoose.model('Logdata', logdataSchema);
-module.exports = Logdata;
+const Datalog = mongoose.model('Datalog', datalogSchema);
+module.exports = Datalog;

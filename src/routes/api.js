@@ -6,4 +6,4 @@ const router = express.Router();
 
 router.use('/log', log);
 
-
+module.exports = router;

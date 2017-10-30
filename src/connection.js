@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
-const mongoURI = process.env.mongodb_uri; // grab uri from enviroment variables.
+const mongoURI = process.env.mongodb_uri;
 mongoose.connect(mongoURI, { useMongoClient: true });
 
 mongoose.connection.on('connected', () => {
-  console.log('Mongoose connected to ' + mongoURI);
+  console.log('Mongoose connected');
 });
 
 mongoose.connection.on('error', (err) => {
