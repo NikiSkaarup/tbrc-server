@@ -1,0 +1,9 @@
+{
+  "deviceIdentifier": "somename",
+  "data": {
+    "relayState": false,
+    "lightLevel": 0,
+    "temperature": 0.0,
+    "milis": 0
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "src/app.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "author": "nikiskaarup",
+  "contributors": [
+    "jamieegeberg"
+  ],
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  },
+  "repository": {
+    "url": "https://github.com/nikiskaarup/tbrc-server"
+  }
+}
