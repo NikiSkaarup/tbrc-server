@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 // create a schema
-var schema = new Schema({
+let schema = new Schema({
   device_identifier: String,
   data: {
     target_temp: Number,

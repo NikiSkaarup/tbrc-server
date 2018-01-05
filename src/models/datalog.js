@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 // create a schema
-var datalogSchema = new Schema({
+let datalogSchema = new Schema({
   device_identifier: String,
   data: {
     relay_state: Boolean,
@@ -24,5 +24,5 @@ datalogSchema.pre('save', function (next) {
   next();
 });
 
-const Datalog = mongoose.model('DeviceSetup', datalogSchema);
+const Datalog = mongoose.model('Datalog', datalogSchema);
 module.exports = Datalog;
