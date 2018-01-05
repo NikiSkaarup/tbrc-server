@@ -29,7 +29,7 @@ router.get('/:device_identifier', (req, res, next) => {
 });
 
 function saveSetup(deviceId) {
-  let ds = new DeviceSetup({
+  let ds = DeviceSetup({
     device_identifier: deviceId,
     data: {
       target_temp: 25,

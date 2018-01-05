@@ -15,7 +15,7 @@ const verify = (body) => {
 
 router.post('/', (req, res, next) => {
   if (verify(req.body)) {
-    let log = new Datalog({
+    let log = Datalog({
       device_identifier: req.body.device_identifier,
       data: req.body.data
     });
