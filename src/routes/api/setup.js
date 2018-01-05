@@ -10,11 +10,14 @@ const verify = (body) => {
 
 router.get('/:device_identifier', (req, res, next) => {
   let deviceId = req.params['device_identifier'];
+  console.log(`deviceId: ${deviceId}`);
 
-  DeviceSetup.find({ device_identifier: deviceId }, function (err, devicesetup) {
+  DeviceSetup.findOne({ device_identifier: deviceId }, function (err, devicesetup) {
 
     if (err) {
       devicesetup = saveSetup(deviceId);
+      console.log(`err, DeviceSetup: ${devicesetup}`);
+
       if (!devicesetup) {
         res.status(400).send(JSON.stringify({
           "type": "error",
@@ -24,6 +27,7 @@ router.get('/:device_identifier', (req, res, next) => {
       }
     }
 
+    console.log(`devicesetup: ${devicesetup}`);
     res.status(200).send(JSON.stringify(devicesetup));
   });
 });
@@ -41,6 +45,7 @@ function saveSetup(deviceId) {
   ds.save((err) => {
     if (!err) saved = true;
   });
+  console.log(`saveSetup, ds: ${ds}`);
   return saved ? ds : undefined;
 }
 
