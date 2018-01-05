@@ -15,17 +15,27 @@ router.get('/:device_identifier', (req, res, next) => {
   DeviceSetup.findOne({ device_identifier: deviceId }, function (err, devicesetup) {
 
     if (err) {
+      res.status(400).send(JSON.stringify({
+        "type": "error",
+        "message": "ERROR - DeviceSetup"
+      }));
+      throw err;
+    }
+
+    if (devicesetup == undefined || devicesetup == null) {
       devicesetup = saveSetup(deviceId);
       console.log(`err, DeviceSetup: ${devicesetup}`);
-
-      if (!devicesetup) {
-        res.status(400).send(JSON.stringify({
-          "type": "error",
-          "message": "ERROR"
-        }));
-        throw err;
-      }
     }
+
+    /*
+    if (!devicesetup) {
+      res.status(400).send(JSON.stringify({
+        "type": "error",
+        "message": "ERROR"
+      }));
+      throw err;
+    }
+    */
 
     console.log(`devicesetup: ${devicesetup}`);
     res.status(200).send(JSON.stringify(devicesetup));
