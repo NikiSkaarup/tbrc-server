@@ -24,8 +24,10 @@ router.get('/:device_identifier', (req, res, next) => {
 
     if (devicesetup == undefined || devicesetup == null) {
       let ds = saveSetup(deviceId);
-      res.status(200).send(JSON.stringify(ds));
-      return;
+      if (ds) {
+        res.status(200).send(JSON.stringify(ds));
+        return;
+      }
     }
 
     if (!devicesetup) {
