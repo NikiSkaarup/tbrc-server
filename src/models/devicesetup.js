@@ -1,19 +1,17 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 // create a schema
-var datalogSchema = new Schema({
+var schema = new Schema({
   device_identifier: String,
   data: {
-    relay_state: Boolean,
-    light_level: Number,
-    temperature: Number,
-    milis: Number
+    target_temp: Number,
+    target_temp_tolerance: Number
   },
   created_at: Date,
   updated_at: Date
 });
 
-datalogSchema.pre('save', function (next) {
+schema.pre('save', function (next) {
   const currentDate = new Date().toISOString();
 
   this.updated_at = currentDate;
@@ -24,5 +22,5 @@ datalogSchema.pre('save', function (next) {
   next();
 });
 
-const Datalog = mongoose.model('DeviceSetup', datalogSchema);
-module.exports = Datalog;
+const DeviceSetup = mongoose.model('DeviceSetup', schema);
+module.exports = DeviceSetup;

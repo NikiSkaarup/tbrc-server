@@ -6,7 +6,6 @@ const bodyParser = require('body-parser');
 // Routes imports
 const api = require('./routes/api');
 
-
 // App setup
 const app = express();
 // App.use

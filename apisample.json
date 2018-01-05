@@ -1,8 +1,8 @@
 {
-  "deviceIdentifier": "somename",
+  "device_identifier": "somename",
   "data": {
-    "relayState": false,
-    "lightLevel": 0,
+    "relay_state": false,
+    "light_level": 0,
     "temperature": 0.0,
     "milis": 0
   }
