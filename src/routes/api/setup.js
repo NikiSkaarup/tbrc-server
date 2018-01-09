@@ -16,6 +16,7 @@ router.get('/:device_identifier', (req, res, next) => {
 
     if (devicesetup == undefined || devicesetup == null) {
       let ds = saveSetup(deviceId);
+      console.log(`ds check: ${ds}`);
       if (ds) {
         res.status(200).send(JSON.stringify(ds));
         return;
@@ -27,7 +28,7 @@ router.get('/:device_identifier', (req, res, next) => {
         "type": "error",
         "message": "ERROR"
       }));
-      throw err;
+      return;
     }
 
     console.log(`devicesetup: ${devicesetup}`);
